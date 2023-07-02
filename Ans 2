@@ -1,0 +1,32 @@
+Ans 2
+import java.util.*;
+public class Main{
+    public static void partition(int[] arr, int s, int e){
+        int pIndex= s;
+        for (int j = s; j <= e; j++) {
+            if (arr[j] < 0){    // pivot is 0
+                int temp = arr[j];
+                arr[j] = arr[pIndex];
+                arr[pIndex] = temp;
+                pIndex++;
+            }
+        }
+    }
+    public static void main(String[] args){
+        int[] arr = { 9, 20, -7, -4, 13, -11, -15, 3 };
+        int n = arr.length;
+        partition(arr, 0, n - 1);
+        for (int i : arr) {
+               System.out.print(i + " ");
+        }
+    }
+}
+
+
+The approach is much similar to the concept of quick sort algorithm where in this case we
+are using 0 as our pivot element 1⁄2ecause we know that any num1⁄2er less than 0 is termed as
+negative num1⁄2er and any num1⁄2er greater than 0 is termed as positive num1⁄2er1⁄4
+ We have to make one pass of the partition process. The resultant array will satisfy the given
+constraints1⁄4
+ In the partition function , each time we find a negative num1⁄2er, `pIndex` is incremented and
+that element would 1⁄2e placed 1⁄2efore the pivot.
